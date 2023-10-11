@@ -1,0 +1,9 @@
+# Env folder
+myenv/
+
+# Env file
+.env
+
+#pycache
+__pycache__/
+*.py[cod]
