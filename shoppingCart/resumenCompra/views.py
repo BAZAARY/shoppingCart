@@ -10,7 +10,7 @@ from resumenCompra.serializers import CarritoSerializer
 class ResumenCarrito(APIView):
     #Retorna todos los elementos del carrito
     #Este metodo se actualizará eventualmente cuando pueda recuperar el token de auth
-    permission_classes = (permissions.AllowAny)
+    permission_classes = [permissions.AllowAny]
 
     def get(self, request, format=None):
         queryset = Carrito.objects.all()
