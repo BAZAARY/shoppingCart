@@ -12,5 +12,12 @@ class Query:
                   return products
             return Carrito.objects.all()
     
-
-schema = strawberry.federation.Schema(query=Query)
+@strawberry.type
+class Mutation:
+      @strawberry.mutation
+      def addproduct(self, usuario:str) -> CarritoType:
+            nuevoProducto = Carrito(usuario=usuario)
+            nuevoProducto.save()
+            return nuevoProducto
+      
+schema = strawberry.federation.Schema(query=Query, mutation=Mutation)

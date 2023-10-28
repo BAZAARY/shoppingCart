@@ -8,14 +8,15 @@
 from django.db import models
 
 class Carrito(models.Model):
-    id = models.AutoField(primary_key=True)
-    usuario = models.CharField(max_length=255)
-    producto = models.CharField(max_length=255)
-    cantidad = models.SmallIntegerField()
-    estado_compra = models.CharField(max_length=255)
-
+    usuario = models.CharField(max_length=255, primary_key=True)
+    producto = models.CharField(max_length=255, unique=True, default="")
+    cantidad = models.SmallIntegerField(default=1)
+    estado_compra = models.CharField(max_length=255, default="inmediata")
+    
     class Meta:
         managed = False
         db_table = 'carrito'
+        unique_together = ('usuario', 'producto'),
         db_table_comment = 'Tabla para el carrito de compras'
+
 
