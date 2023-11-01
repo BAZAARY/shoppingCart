@@ -3,7 +3,7 @@ from .models import Carrito
 
 @strawberry.django.type(Carrito)
 class CarritoType:
-    usuario: str
-    producto: str
+    usuario: int
+    producto: int
     cantidad: int
     estado_compra: str

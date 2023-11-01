@@ -8,8 +8,8 @@
 from django.db import models
 
 class Carrito(models.Model):
-    usuario = models.CharField(max_length=255, primary_key=True)
-    producto = models.CharField(max_length=255, unique=True, default="")
+    usuario = models.IntegerField(primary_key=True)
+    producto = models.IntegerField()
     cantidad = models.SmallIntegerField(default=1)
     estado_compra = models.CharField(max_length=255, default="inmediata")
     
