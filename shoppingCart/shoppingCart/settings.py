@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "False").lower == "true"
 
 ALLOWED_HOSTS = []
 
@@ -59,11 +59,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'shoppingCart.urls'
 
-CORS_ALLOWED_ORIGINS = [ 
-    "http://localhost:3000",
-    "http://localhost:4000",
-
-]
+CORS_ALLOWED_ORIGINS = os.environ.get("CORS_ALLOWED_ORIGINS").split(",")
 
 # CORS_ALLOW_CREDENTIALS = True
 
