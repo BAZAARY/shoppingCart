@@ -6,7 +6,7 @@ from .models import Carrito
 @strawberry.type
 class Query:
     @strawberry.field
-    def products(self, usuario:int) -> List[CarritoType]:
+    def listuserproducts(self, usuario:int) -> List[CarritoType]:
             if usuario:
                   products = Carrito.objects.filter(usuario=usuario)
                   return products
